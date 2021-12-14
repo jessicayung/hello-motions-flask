@@ -1,0 +1,28 @@
+{% extends "template.jinja" %}
+{% block title %}{{year}} Motions{% endblock %}
+{% block description %}{{year}} debating motions.{% endblock %}
+{% block content %}
+
+  <h1>{{year}} Motions</h1>
+    <p>Listed with most recent tournaments first. Can't find a tournament? <a href="https://docs.google.com/forms/d/14v5RuG6NHjDySrLN8zJC97-e761sRBivhOoPxjt0K6I/viewform?c=0&w=1">Send us the motions here</a>. </p>
+    <p> <a href="motions{{year}}-mobile">Mobile version</a></p>
+
+  <table class="table table-striped">
+    <tr>
+     <th>Date</th>
+     <th>Tournament</th>
+     <th>Round</th>
+     <th>Motion</th>
+    </tr>
+    <!--Output data of each row-->
+    {% for motion in motions %}
+      <tr>
+        <td> {{ motion.date }} </td>
+        <td> {{ motion.tournament }} </td>
+        <td> {{ motion.round }} </td>
+        <td> {{ motion.motion }} </td>
+      </tr>
+    {% endfor %}
+   </table>
+
+{% endblock %}
